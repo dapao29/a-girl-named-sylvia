@@ -1,0 +1,36 @@
+# === 隐私保护 ===
+# 明文的人格文件绝不上传，只上传加密压缩包 sylvia.7z
+persona.md
+memory.md
+SKILL.md
+CLAUDE.md
+
+# === 运行产物 ===
+*.log
+claude.log
+browser-profile/
+browser-profile-v2/
+snapshot.json
+snapshot-api.json
+cursor.txt
+account.json
+last-run.log
+
+# === 凭证 ===
+config.json
+*.token
+*.secret
+.env
+cookie.txt
+
+# === 临时 ===
+node_modules/
+__pycache__/
+*.tmp
+debug-*.png
+debug-*.html
+
+# === 系统 ===
+.DS_Store
+Thumbs.db
+desktop.ini
