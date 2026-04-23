@@ -10,7 +10,7 @@
 
 ### 1. 克隆仓库
 ```bash
-git clone https://github.com/<owner>/a-girl-named-sylvia.git
+git clone https://github.com/dapao29/a-girl-named-sylvia.git
 cd a-girl-named-sylvia
 ```
 
