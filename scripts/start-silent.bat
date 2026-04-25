@@ -1,20 +1,17 @@
 @echo off
 cd /d D:\sylvia_skill
 
-REM Auto-detect latest claude-code version
-set CLAUDE_DIR=%APPDATA%\Claude\claude-code
-set LATEST=
-for /f "delims=" %%V in ('dir /b /a:d /o:-n "%CLAUDE_DIR%" 2^>nul') do (
-    if not defined LATEST set LATEST=%%V
-)
+for /f "delims=" %%V in ('powershell -NoProfile -ExecutionPolicy Bypass -File "D:\sylvia_skill\find-latest-claude.ps1"') do set LATEST=%%V
 
 if "%LATEST%"=="" (
     echo [%DATE% %TIME%] ERROR: claude-code not found >> D:\sylvia_skill\claude.log
     exit /b 1
 )
 
-set CLAUDE_EXE=%CLAUDE_DIR%\%LATEST%\claude.exe
+set CLAUDE_EXE=%APPDATA%\Claude\claude-code\%LATEST%\claude.exe
 
-echo [%DATE% %TIME%] Starting claude %LATEST% >> D:\sylvia_skill\claude.log
+echo [%DATE% %TIME%] Starting claude %LATEST% minimized >> D:\sylvia_skill\claude.log
 
-"%CLAUDE_EXE%" --dangerously-load-development-channels "plugin:weixin@cc-weixin" >> D:\sylvia_skill\claude.log 2>&1
+REM Use start /MIN to keep TTY but minimize the window
+REM Tee stderr to a debug log for diagnostics
+start "Sylvia-Backend" /MIN cmd /c ""%CLAUDE_EXE%" --dangerously-load-development-channels "plugin:weixin@cc-weixin" 2>> D:\sylvia_skill\logs\sylvia_stderr.log"

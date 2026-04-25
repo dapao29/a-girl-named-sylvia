@@ -1,34 +1,56 @@
-# === 隐私保护 ===
-# 明文的人格文件绝不上传，只上传加密压缩包 sylvia.7z
+# === 隐私保护：明文人格文件绝不上传 ===
 persona.md
 memory.md
 SKILL.md
 CLAUDE.md
+persona/v*.md
+memory/long_term.json
+memory/mid_term.json
+memory/short_term.json
+memory/recent_replies.jsonl
+
+# === 大量原始对话语料（隐私敏感）===
+rag/corpus/
+rag/vector_db/
+persona/samples/
 
 # === 运行产物 ===
 *.log
 claude.log
+guardian.log
+push_wechat.log
+hook_debug.log
 browser-profile/
 browser-profile-v2/
 snapshot.json
 snapshot-api.json
 cursor.txt
 account.json
+contexts.json
 last-run.log
+today-result.json
 
-# === 凭证 ===
+# === 凭证 / 配置 ===
 config.json
 *.token
 *.secret
 .env
 cookie.txt
+.claude/settings.local.json
+
+# === 评分日志（含真实对话）===
+scoring/gold.jsonl
+scoring/negative.jsonl
+scoring/gold_fewshot.json
 
 # === 临时 ===
 node_modules/
 __pycache__/
 *.tmp
+*.tmp.json
 debug-*.png
 debug-*.html
+wheel_cache/
 
 # === 系统 ===
 .DS_Store
